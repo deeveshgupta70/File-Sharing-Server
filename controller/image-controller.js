@@ -11,9 +11,9 @@ export const uploadImage = async (req, res) => {
     }
     
     try {
-        const responsePath = `http://localhost:${process.env.PORT}`
+        // const responsePath = `http://localhost:${process.env.PORT}`
         const file = await File.create(fileObj);
-        res.status(200).json({ path: `${responsePath}/${file._id}`});
+        res.status(200).json({ path: `${process.env.RESPONSE_PATH}/${file._id}`});
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ error: error.message });
